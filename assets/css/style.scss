@@ -47,7 +47,6 @@ body {
 }
 
 .modal {
-  &1, &2 {
     position: absolute;
     flex-direction: column;
     align-items: center;
@@ -62,9 +61,8 @@ body {
       opacity: 1;
       pointer-events: auto;
     }
-  }
 
-  &2 {
+  .modal-success{
     width: 700px;
     height: 257px;
     padding: 34px 179px;
@@ -352,7 +350,7 @@ body {
   padding-top: 90px;
   text-align: justify;
   padding-bottom: 207px;
-  z-index: 0;
+  z-index: 2;
 
   &__block1 {
     display: flex;
@@ -437,10 +435,9 @@ body {
     position: absolute;
     align-self: center;
     pointer-events: none;
-    left: calc(50% - 1920px / 2);
-    top: -450px;
+    width: 100%;
+    top: calc(-450 * (100vw / 1920));
     z-index: 1;
-    height: 2308px;
     overflow: hidden;
   }
 

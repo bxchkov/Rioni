@@ -150,7 +150,7 @@ body {
   overflow: hidden;
 }
 
-.modal1, .modal2 {
+.modal {
   position: absolute;
   flex-direction: column;
   align-items: center;
@@ -161,11 +161,11 @@ body {
   pointer-events: none;
   transition: all 0.2s ease;
 }
-.modal1.active, .modal2.active {
+.modal.active {
   opacity: 1;
   pointer-events: auto;
 }
-.modal2 {
+.modal .modal-success {
   width: 700px;
   height: 257px;
   padding: 34px 179px;
@@ -420,7 +420,7 @@ body {
   padding-top: 90px;
   text-align: justify;
   padding-bottom: 207px;
-  z-index: 0;
+  z-index: 2;
 }
 .about-us__block1 {
   display: flex;
@@ -492,10 +492,9 @@ body {
   position: absolute;
   align-self: center;
   pointer-events: none;
-  left: calc(50% - 960px);
-  top: -450px;
+  width: 100%;
+  top: -23.4375vw;
   z-index: 1;
-  height: 2308px;
   overflow: hidden;
 }
 .menu-preview__inner {

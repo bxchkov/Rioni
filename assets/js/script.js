@@ -1,6 +1,6 @@
 let modals = document.querySelector('.modals');
-let modal1 = document.querySelector('.modal1');
-let modal2 = document.querySelector('.modal2');
+let modalReservation = document.querySelector('.modal-reservation');
+let modalSuccess = document.querySelector('.modal-success');
 
 //open toggle1 modal
 document.addEventListener("click", e => {
@@ -10,16 +10,16 @@ document.addEventListener("click", e => {
             return;
         }
     }
-    openModal1();
+    openModalReservation();
 })
 
-//modal1 to modal2
+//modalReservation to modalReservation
 document.addEventListener("click", e => {
     if (!e.target.closest('.modal-reservation__button')) {
         return;
     }
-    modal1.classList.remove("active");
-    modal2.classList.add("active");
+    modalReservation.classList.remove("active");
+    modalSuccess.classList.add("active");
 })
 
 //close button modals
@@ -30,21 +30,21 @@ document.addEventListener("click", e => {
     closeModals();
 })
 
-const openModal1 = () => {
+const openModalReservation = () => {
     modals.classList.add("active");
-    modal1.classList.add("active");
+    modalReservation.classList.add("active");
     toggleBody();
 }
 
 
 //toggle all modals
 const toggleModals = () => {
-    if (modal1.classList.contains("active")
-        && modal1.classList.contains("active")){
-        modal1.classList.remove("active");
+    if (modalReservation.classList.contains("active")
+        && modalReservation.classList.contains("active")){
+        modalReservation.classList.remove("active");
         modals.classList.remove("active");
     } else {
-        modal1.classList.add("active");
+        modalReservation.classList.add("active");
         modals.classList.add("active");
     }
     toggleBody();
@@ -52,8 +52,8 @@ const toggleModals = () => {
 
 //close all modals
 const closeModals = () => {
-    modal1.classList.remove("active");
-    modal2.classList.remove("active");
+    modalReservation.classList.remove("active");
+    modalReservation.classList.remove("active");
     modals.classList.remove("active");
     toggleBody();
 }
