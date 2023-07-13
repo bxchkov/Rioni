@@ -141,8 +141,8 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.35);
-  transition: opacity 0.5s ease;
-  z-index: 10;
+  transition: opacity 0.3s ease;
+  z-index: 12;
 }
 .modal.active {
   opacity: 1;
@@ -168,10 +168,45 @@ body {
   top: -51.6px;
 }
 .modal-reservation {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-reservation__titles {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+  color: #3B281A;
+  margin-bottom: 20px;
+}
+.modal-reservation__title1 {
+  font-family: "Sofia Sans Extra Condensed", Roboto, serif;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 55.26px;
+  text-transform: uppercase;
+}
+.modal-reservation__title2 {
+  text-align: center;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17.15px;
 }
 .modal-reservation.active {
-  display: grid;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-reservation__confirm {
+  display: flex !important;
+  flex-direction: column-reverse !important;
+  align-items: center;
+}
+.modal-reservation__consent {
+  align-self: stretch;
+}
+.modal-reservation__text {
+  margin-right: 0 !important;
 }
 .modal-gratitude {
   display: none;
@@ -427,6 +462,7 @@ body {
   width: 468px;
   border-radius: 10px;
 }
+
 .info2__image {
   width: 570px;
   border-radius: 10px;
@@ -618,7 +654,7 @@ body {
   display: grid;
   width: 570px;
   height: 480px;
-  grid-template: "name     name     name  " auto "phone    phone    phone " auto "date     time     guests" auto "wishes   wishes   wishes" auto "wishes   wishes   wishes" auto "wishes   wishes   wishes" auto "confirm  confirm  ......" auto/1fr 1fr 1fr;
+  grid-template: "name    name    name   " auto "phone   phone   phone  " auto "date    time    guests " auto "wishes  wishes  wishes " auto "wishes  wishes  wishes " auto "wishes  wishes  wishes " auto "confirm confirm confirm " auto/1fr 1fr 1fr;
   grid-column-gap: 30px;
   grid-row-gap: 15px;
   color: #3B281A;
@@ -683,7 +719,7 @@ body {
   text-align: start;
   padding: 14px 20px;
 }
-.reservation-form__confirmation {
+.reservation-form__confirm {
   grid-area: confirm;
   display: flex;
   flex-direction: column;
@@ -755,7 +791,7 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 18.62px;
-  width: 331px;
+  margin-right: 165px;
 }
 .reservation-form__title3 {
   position: absolute;

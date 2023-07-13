@@ -13,27 +13,53 @@
 <div class="modal">
     <div class="modal__background">
         <button class="modal__close">
-            <img
-                    src="assets/icons/close.svg"
-                    alt="">
+            <img src="assets/icons/close.svg"
+                 alt="">
         </button>
-        <div class="modal-reservation reservation-form">
-            <input class="reservation-form__name"
-                   placeholder="Ваше имя"
-                   type="text">
-            <input class="reservation-form__phone"
-                   placeholder="Номер телефона"
-                   type="text">
-            <div class="reservation-form__date">
-                Дата
+        <div class="modal-reservation">
+            <div class="modal-reservation__titles">
+                <div class="modal-reservation__title1">
+                    Забронируйте стол
+                </div>
+                <span class="modal-reservation__title2">
+                        Оставьте заявку и наш менеджер свяжется с вами<br>
+                        для уточнения деталей
+                    </span>
             </div>
-            <div class="reservation-form__time">
-                Время
+            <div class="reservation-form">
+                <input class="reservation-form__name"
+                       placeholder="Ваше имя"
+                       type="text">
+                <input class="reservation-form__phone"
+                       placeholder="Номер телефона"
+                       type="text">
+                <div class="reservation-form__date">
+                    Дата
+                </div>
+                <div class="reservation-form__time">
+                    Время
+                </div>
+                <div class="reservation-form__guests">
+                    Гости
+                </div>
+                <textarea class="reservation-form__wishes" placeholder="Пожелания" type="text"></textarea>
+
+                <div class="reservation-form__confirm modal-reservation__confirm">
+                    <button class="button reservation-form__button modal-reservation__button">
+                        Забронировать столик
+                    </button>
+                    <label class="reservation-form-consent modal-reservation__consent" for="consent1">
+                        <span class="reservation-form-consent__inner">
+                            <input class="reservation-form-consent__checkbox"
+                                   type="checkbox"
+                                   id="consent1">
+                            <span class="reservation-form-consent__text modal-reservation__text">
+                                Даю согласие на обработку персональных данных, а также с условиями бронирования*
+                            </span>
+                        </span>
+                    </label>
+                </div>
             </div>
-            <div class="reservation-form__guests">
-                Гости
-            </div>
-            <textarea class="reservation-form__wishes" placeholder="Пожелания" type="text"></textarea>
         </div>
         <div class="modal-gratitude">
             <div class="modal-gratitude__title">
@@ -113,12 +139,7 @@
         </div>
         <img class="banner__image"
              src="assets/images/xinkali_mask.png"
-             style="
-   width: 700px;
-    height: 866px;
-    right: 15px;
-    bottom: -103px;
-"
+             style="width: 700px; height: 866px; right: 15px; bottom: -103px;"
              alt="">
     </div>
 </div>
@@ -301,7 +322,7 @@
                     Гости
                 </div>
                 <textarea class="reservation-form__wishes" placeholder="Пожелания" type="text"></textarea>
-                <div class="reservation-form__confirmation">
+                <div class="reservation-form__confirm">
                     <button class="button reservation-form__button">
                         Забронировать столик
                     </button>

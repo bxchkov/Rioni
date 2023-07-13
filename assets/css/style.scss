@@ -36,8 +36,8 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, .35);
-  transition: opacity .5s ease;
-  z-index: 10;
+  transition: opacity .3s ease;
+  z-index: 12;
 
   &.active {
     opacity: 1;
@@ -66,10 +66,51 @@ body {
   }
 
   &-reservation {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+
+    &__titles {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      text-align: center;
+      color: #3B281A;
+      margin-bottom: 20px;
+    }
+
+    &__title1 {
+      font-family: "Sofia Sans Extra Condensed", Roboto, serif;
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 55.26px;
+      text-transform: uppercase;
+    }
+
+    &__title2 {
+      text-align: center;
+      font-family: Evolventa, Roboto, serif;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 17.15px;
+    }
 
     &.active {
-      display: grid;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &__confirm {
+      display: flex!important;
+      flex-direction: column-reverse!important;
+      align-items: center;
+    }
+
+    &__consent {
+      align-self: stretch;
+    }
+
+    &__text {
+      margin-right: 0!important;
     }
   }
 
@@ -113,18 +154,18 @@ body {
   position: relative;
   overflow: hidden;
 
-  &__top-gradient:after{
-      content: "";
-      display: block;
-      width: 100vw;
-      height: 406px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 5;
-      background: linear-gradient(180deg, rgba(59, 40, 26, 1) 25%, rgba(0, 0, 0, 0) 100%);
+  &__top-gradient:after {
+    content: "";
+    display: block;
+    width: 100vw;
+    height: 406px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: linear-gradient(180deg, rgba(59, 40, 26, 1) 25%, rgba(0, 0, 0, 0) 100%);
   }
-  &__menu-bg:after{
+  &__menu-bg:after {
       content: "";
       display: block;
       width: 100%;
@@ -231,10 +272,11 @@ body {
   align-items: flex-start;
   position: relative;
   padding-bottom: 136px;
-  &__inner{
+
+  &__inner {
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+    align-items: flex-start;
     z-index: 10;
   }
 
@@ -261,7 +303,8 @@ body {
     line-height: 84.6px;
     float: left;
     margin-bottom: 59px;
-    span{
+
+    span {
       display: block;
       position: absolute;
       top: 71%;
@@ -275,6 +318,7 @@ body {
     border: #FBE7B5 1px solid;
     font-size: 16px;
     font-style: normal;
+
     &:hover, &.active {
       background-color: #FBE7B5;
       color: #3B281A;
@@ -282,9 +326,7 @@ body {
   }
 
   &__image {
-
     position: absolute;
-
     z-index: 5;
   }
 
@@ -351,16 +393,12 @@ body {
 }
 
 .info1 {
-  &__text1 {
-  }
 
   &__image {
     width: 468px;
     border-radius: 10px;
   }
 
-  &__text2 {
-  }
 }
 
 .info2 {
@@ -584,14 +622,14 @@ body {
     display: grid;
     width: 570px;
     height: 480px;
-    grid-template: "name     name     name  " auto
-                   "phone    phone    phone " auto
-                   "date     time     guests" auto
-                   "wishes   wishes   wishes" auto
-                   "wishes   wishes   wishes" auto
-                   "wishes   wishes   wishes" auto
-                   "confirm  confirm  ......" auto
-                  / 1fr      1fr      1fr;
+    grid-template: "name    name    name   " auto
+                   "phone   phone   phone  " auto
+                   "date    time    guests " auto
+                   "wishes  wishes  wishes " auto
+                   "wishes  wishes  wishes " auto
+                   "wishes  wishes  wishes " auto
+                   "confirm confirm confirm " auto
+                  / 1fr     1fr    1fr;
     grid-column-gap: 30px;
     grid-row-gap: 15px;
     color: #3B281A;
@@ -599,7 +637,6 @@ body {
     font-size: 14px;
     font-weight: 400;
     line-height: 18.62px;
-
 
     &__name, &__phone, &__date,
     &__time, &__guests, &__wishes {
@@ -668,7 +705,7 @@ body {
       padding: 14px 20px;
     }
 
-    &__confirmation {
+    &__confirm {
       grid-area: confirm;
       display: flex;
       flex-direction: column;
@@ -752,7 +789,7 @@ body {
         font-size: 14px;
         font-weight: 400;
         line-height: 18.62px;
-        width: 331px;
+        margin-right: 165px;
       }
     }
 
