@@ -1,0 +1,880 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100vw;
+}
+html.hidden, body.hidden {
+  overflow: hidden;
+}
+
+input, button, textarea {
+  box-shadow: none;
+  font-family: inherit;
+  resize: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+@font-face {
+  font-family: "Sofia Sans Extra Condensed";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Sofia Sans Extra Condensed/SofiaSansExtraCondensed-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Sofia Sans Extra Condensed";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/fonts/Sofia Sans Extra Condensed/SofiaSansExtraCondensed-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Evolventa";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Evolventa/Evolventa-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Evolventa";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/fonts/Evolventa/Evolventa-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Comforter Brush";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Comforter Brush/ComforterBrush-Regular.ttf") format("truetype");
+}
+body {
+  font-family: "Evolventa", Roboto, serif;
+  font-weight: 400;
+  line-height: 1;
+  color: white;
+  background-color: #EFEFEF;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #423021;
+  opacity: 0.5;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #FBE7B5;
+  border-radius: 20px;
+  border: 3px solid #423021;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.35);
+  transition: opacity 0.5s ease;
+  z-index: 10;
+}
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+  overflow: hidden;
+}
+.modal__background {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  background-color: #EFEFEF;
+  padding: 34px 88px 30px;
+}
+.modal__close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  right: 15px;
+  top: -51.6px;
+}
+.modal-reservation {
+  display: none;
+}
+.modal-reservation.active {
+  display: grid;
+}
+.modal-gratitude {
+  display: none;
+}
+.modal-gratitude.active {
+  display: block;
+}
+.modal-gratitude__title {
+  color: #3B281A;
+  text-align: center;
+  font-family: "Sofia Sans Extra Condensed", Roboto, serif;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 55px;
+  text-transform: uppercase;
+}
+.modal-gratitude__text {
+  color: #3B281A;
+  text-align: center;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.main-background {
+  background: #3B281A url("../../assets/images/background.svg");
+  position: relative;
+  padding-bottom: 136px;
+  overflow: hidden;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 10px;
+  padding: 0 15px;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  font-weight: 700;
+  color: #FBE7B5;
+  font-family: Evolventa, Roboto, serif;
+  border: 1px solid #FBE7B5;
+}
+.button:hover, .button.active {
+  background-color: #FBE7B5;
+  border: 1px #FBE7B5 solid;
+  color: #3B281A;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  gap: 19px;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  padding-top: 75px;
+  margin-bottom: 98px;
+  color: #FBE7B5;
+  font-family: "Sofia Sans Extra Condensed", Roboto, serif;
+  user-select: none;
+  z-index: 3;
+}
+.header__items {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: 0 auto;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26.4px;
+}
+.header__item {
+  text-transform: uppercase;
+  transition: border-bottom 0.3s ease;
+  border-bottom: rgba(251, 231, 181, 0) 1px solid;
+}
+.header__item:hover, .header__item.active {
+  border-bottom: #fbe7b5 1px solid;
+}
+.header__button {
+  color: #3B281A;
+  font-size: 16px;
+  line-height: 21.28px;
+  width: 220px;
+  background-color: #FBE7B5;
+}
+.header__phone {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 400;
+}
+.header__work-time {
+  font-family: Evolventa, Roboto, serif;
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  color: #FBE7B5;
+  opacity: 0.5;
+  font-size: 14px;
+  line-height: 18.62px;
+}
+
+.banner {
+  user-select: none;
+}
+.banner__title1 {
+  position: relative;
+  color: white;
+  font-family: "Sofia Sans Extra Condensed", Roboto, serif;
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 120px;
+  text-transform: uppercase;
+  z-index: 3;
+}
+.banner__title2 {
+  position: relative;
+  width: 524px;
+  height: 146px;
+  margin-top: 25px;
+  color: #FBE7B5;
+  font-family: "Comforter Brush", Roboto, serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 84.6px;
+  z-index: 3;
+}
+.banner__title2_1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.banner__title2_2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.banner__button {
+  margin-top: 20px;
+  font-weight: 700;
+  border: #FBE7B5 1px solid;
+}
+.banner__button:hover, .banner__button.active {
+  background-color: #FBE7B5;
+  color: #3B281A;
+}
+.banner__image {
+  width: 700px;
+  height: 830px;
+  border-radius: 42% 42% 0 0;
+  position: absolute;
+  right: 0;
+  bottom: -75px;
+  z-index: 1;
+}
+.banner__gradient {
+  width: 100vw;
+  height: 406px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgb(59, 40, 26) 25%, rgba(0, 0, 0, 0) 100%);
+}
+
+.about-us {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 132px;
+  padding-top: 90px;
+  text-align: justify;
+  padding-bottom: 207px;
+  z-index: 0;
+}
+.about-us__block1 {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  color: black;
+  font-family: Evolventa, Roboto, serif;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+}
+.about-us__title1 {
+  font-family: "Sofia Sans Extra Condensed", Roboto, serif;
+  user-select: none;
+  text-transform: uppercase;
+  font-size: 50px;
+  line-height: 60px;
+  font-weight: 700;
+  color: #3B281A;
+  margin-bottom: 25px;
+}
+.about-us__title2 {
+  font-family: "Comforter Brush", Roboto, serif;
+  color: #3B281A;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 84.6px;
+}
+.about-us__block2 {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: black;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+}
+
+.info1__image {
+  width: 468px;
+  border-radius: 10px;
+}
+.info2__image {
+  width: 570px;
+  border-radius: 10px;
+}
+
+.info3__image {
+  width: 370px;
+  border-radius: 10px;
+}
+.info3__text {
+  width: 370px;
+}
+
+.menu-preview {
+  display: flex;
+  background-color: #3B281A;
+  position: relative;
+  z-index: 0;
+  padding-bottom: 100px;
+}
+.menu-preview__background {
+  position: absolute;
+  align-self: center;
+  pointer-events: none;
+  left: calc(50% - 960px);
+  top: -450px;
+  z-index: 1;
+  height: 2308px;
+  overflow: hidden;
+}
+.menu-preview__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+.menu-preview__title1, .menu-preview__title2 {
+  position: absolute;
+  font-family: "Comforter Brush", Roboto, serif;
+  font-size: 70px;
+  line-height: 98.7px;
+  font-weight: 400;
+  color: #FBE7B5;
+  user-select: none;
+}
+.menu-preview__title1 {
+  top: -214px;
+  left: 15px;
+  transform: rotate(-15deg);
+}
+.menu-preview__title2 {
+  top: -125px;
+  left: 155px;
+  transform: rotate(11.454deg);
+}
+.menu-preview__title {
+  color: #FBE7B5;
+  align-self: start;
+  font-family: "Sofia Sans Extra Condensed", Roboto, serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 60px;
+  text-transform: uppercase;
+}
+.menu-preview__items {
+  width: 100%;
+  padding: 30px 0 40px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.menu-preview__button:hover, .menu-preview__button.active {
+  background-color: #FBE7B5;
+  color: #3B281A;
+}
+
+.menu-preview_item {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  border-radius: 10px;
+  height: 303px;
+  background-color: rgba(0, 0, 0, 0);
+  border: #FBE7B5 1px solid;
+  padding: 30px 20px;
+  overflow: hidden;
+  z-index: 2;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+.menu-preview_item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.menu-preview_item:hover .menu-preview_item__title {
+  border-bottom: #FBE7B5 1px solid;
+}
+.menu-preview_item__image-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  top: -66px;
+  right: -66px;
+  height: 298px;
+  width: 298px;
+  border-radius: 100%;
+  border: #FBE7B5 1px solid;
+  overflow: hidden;
+  z-index: 4;
+}
+.menu-preview_item__image {
+  height: 232px;
+  width: 232px;
+}
+.menu-preview_item__title {
+  color: #FBE7B5;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.28px;
+  transition: border-bottom 0.3s ease;
+  border-bottom: rgba(0, 0, 0, 0) 1px solid;
+}
+
+.reservation {
+  position: relative;
+  background-color: #EFEFEF;
+  padding-top: 130px;
+  padding-bottom: 235px;
+  z-index: 1;
+}
+.reservation__inner {
+  display: grid;
+  grid-template: "title1 title2" auto "form   form  " 1fr "form   form  " 1fr "form   form  " 1fr/auto 1fr;
+  grid-column-gap: 73px;
+  width: 100%;
+}
+.reservation-frame {
+  position: absolute;
+  overflow-y: visible;
+  top: 100px;
+  left: 0;
+  width: 64.8%;
+  height: 629px;
+  border-top: 2px #3B281A solid;
+  border-right: 2px #3B281A solid;
+  border-bottom: 2px #3B281A solid;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 0 10px 10px 0;
+}
+.reservation-frame__image {
+  height: 643px;
+  position: absolute;
+  bottom: -106px;
+  right: -302px;
+  border-radius: 10px;
+  z-index: 2;
+}
+.reservation__title1 {
+  grid-area: title1;
+  color: #3B281A;
+  font-family: "Sofia Sans Extra Condensed", Roboto, serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 60px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.reservation__title2 {
+  grid-area: title2;
+  color: #3B281A;
+  align-self: center;
+  text-align: justify;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+  width: 370px;
+  margin-bottom: 30px;
+}
+.reservation-form {
+  grid-area: form;
+  position: relative;
+  display: grid;
+  width: 570px;
+  height: 480px;
+  grid-template: "name     name     name  " auto "phone    phone    phone " auto "date     time     guests" auto "wishes   wishes   wishes" auto "wishes   wishes   wishes" auto "wishes   wishes   wishes" auto "confirm  confirm  ......" auto/1fr 1fr 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 15px;
+  color: #3B281A;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+}
+.reservation-form__name, .reservation-form__phone, .reservation-form__date, .reservation-form__time, .reservation-form__guests, .reservation-form__wishes {
+  border: 1px #3B281A solid;
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0 20px;
+  color: #3B281A;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+}
+.reservation-form__name::placeholder, .reservation-form__phone::placeholder, .reservation-form__date::placeholder, .reservation-form__time::placeholder, .reservation-form__guests::placeholder, .reservation-form__wishes::placeholder {
+  color: #3B281A;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+}
+.reservation-form__name {
+  grid-area: name;
+}
+.reservation-form__phone {
+  grid-area: phone;
+}
+.reservation-form__date, .reservation-form__time, .reservation-form__guests {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+}
+.reservation-form__date::after, .reservation-form__time::after, .reservation-form__guests::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 10px;
+  background: url("../../assets/icons/arrow1.svg");
+  top: calc(50% - 5px);
+  right: 20px;
+}
+.reservation-form__date {
+  grid-area: date;
+}
+.reservation-form__time {
+  grid-area: time;
+}
+.reservation-form__guests {
+  grid-area: guests;
+}
+.reservation-form__wishes {
+  grid-area: wishes;
+  height: 150px;
+  text-align: start;
+  padding: 14px 20px;
+}
+.reservation-form__confirmation {
+  grid-area: confirm;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+.reservation-form__button {
+  width: 220px;
+  color: #FBE7B5;
+  border: 1px solid #3B281A;
+  background-color: #3B281A;
+}
+.reservation-form__button:hover, .reservation-form__button.active {
+  background-color: #FBE7B5;
+  border: 1px solid #3B281A;
+  color: #3B281A;
+}
+.reservation-form-consent {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  grid-area: consent;
+  cursor: pointer;
+  height: 39px;
+}
+.reservation-form-consent:hover .reservation-form-consent__inner::after {
+  background: rgba(59, 40, 26, 0.2);
+}
+.reservation-form-consent.active .reservation-form-consent__inner::after {
+  background: #3B281A;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23FBE7B5' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+.reservation-form-consent__inner {
+  display: flex;
+  gap: 19px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.reservation-form-consent__inner::after {
+  content: "";
+  inline-size: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px #3B281A solid;
+  background: rgba(59, 40, 26, 0);
+  background-image: none;
+  transition: background 0.3s ease, background-image 0.3s ease;
+  padding: 1px;
+}
+.reservation-form-consent__checkbox {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  opacity: 0;
+  pointer-events: none;
+}
+.reservation-form-consent__text {
+  color: #3B281A;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+  width: 331px;
+}
+.reservation-form__title3 {
+  position: absolute;
+  bottom: 5px;
+  right: -65px;
+  align-self: center;
+  color: #3B281A;
+  font-family: "Comforter Brush", Roboto, serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 84.6px;
+  transform: rotate(11.454deg);
+  width: fit-content;
+  user-select: none;
+}
+
+.footer {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background-color: #3B281A;
+}
+.footer-contacts1 {
+  display: grid;
+  grid-template: "title map " auto "items map " auto/310px auto;
+  grid-column-gap: 190px;
+  padding-bottom: 100px;
+  border-bottom: #FBE7B5 2px solid;
+  color: #FBE7B5;
+}
+.footer-contacts1__title {
+  grid-area: title;
+  font-family: "Sofia Sans Extra Condensed", Roboto, serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 60px;
+  text-transform: uppercase;
+}
+.footer-contacts1__items {
+  grid-area: items;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.footer-contacts1__item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.footer-contacts1__item-title {
+  font-family: Evolventa, Roboto, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+  width: fit-content;
+  opacity: 0.5;
+  border-bottom: 1px #FBE7B5 solid;
+}
+.footer-contacts1__item-text {
+  color: #FBE7B5 !important;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 29.26px;
+}
+.footer-contacts1__map {
+  grid-area: map;
+  height: 390px;
+  border: #FBE7B5 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+}
+.footer-contacts2 {
+  display: grid;
+  grid-template: "logo  items privacy phone  " auto "logo  items socials address" auto "text  items socials address" auto "text  items socials button " auto/300px auto auto auto;
+  grid-column-gap: 106px;
+  color: #FBE7B5;
+  padding-top: 50px;
+  font-family: Evolventa, Roboto, serif;
+}
+.footer-contacts2__logo {
+  grid-area: logo;
+}
+.footer-contacts2__text {
+  grid-area: text;
+  align-self: end;
+  text-align: justify;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  margin-bottom: 15px;
+}
+.footer-contacts2__items {
+  grid-area: items;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.28px;
+  text-align: left;
+}
+.footer-contacts2__item {
+  width: fit-content;
+  white-space: nowrap;
+  border-bottom: rgba(251, 231, 181, 0) 1px solid;
+  transition: border-bottom 0.3s ease;
+}
+.footer-contacts2__item:hover, .footer-contacts2__item.active {
+  border-bottom: #fbe7b5 1px solid;
+}
+.footer-contacts2__privacy {
+  grid-area: privacy;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.28px;
+  text-decoration-line: underline;
+}
+.footer-contacts2__socials {
+  justify-self: center;
+  align-self: start;
+  display: flex;
+  gap: 15px;
+  grid-area: socials;
+}
+.footer-contacts2__phone {
+  grid-area: phone;
+  text-align: right;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 29.26px;
+}
+.footer-contacts2__address {
+  grid-area: address;
+  align-self: center;
+  text-align: right;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.28px;
+}
+.footer-contacts2__button {
+  grid-area: button;
+}
+
+/*# sourceMappingURL=style.css.map */
