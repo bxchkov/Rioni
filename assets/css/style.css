@@ -19,6 +19,15 @@ a:focus, a:active {
   outline: none;
 }
 
+a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 nav, footer, header, aside {
   display: block;
 }
@@ -52,15 +61,6 @@ button {
 button::-moz-focus-inner {
   padding: 0;
   border: 0;
-}
-
-a, a:visited {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  text-decoration: none;
 }
 
 ul li {
@@ -129,7 +129,7 @@ body {
   border: 3px solid #423021;
 }
 
-.modal {
+.modals {
   position: fixed;
   top: 0;
   left: 0;
@@ -141,22 +141,34 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.35);
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
   z-index: 12;
 }
-.modal.active {
+.modals.active {
   opacity: 1;
   pointer-events: auto;
   overflow: hidden;
 }
-.modal__background {
-  position: relative;
-  display: flex;
+
+.modal1, .modal2 {
+  position: absolute;
   flex-direction: column;
   align-items: center;
   border-radius: 30px;
   background-color: #EFEFEF;
   padding: 34px 88px 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+.modal1.active, .modal2.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal2 {
+  width: 700px;
+  height: 257px;
+  padding: 34px 179px;
 }
 .modal__close {
   position: absolute;
@@ -166,10 +178,6 @@ body {
   cursor: pointer;
   right: 15px;
   top: -51.6px;
-}
-.modal-reservation {
-  opacity: 0;
-  pointer-events: none;
 }
 .modal-reservation__titles {
   display: flex;
@@ -193,10 +201,6 @@ body {
   font-weight: 400;
   line-height: 17.15px;
 }
-.modal-reservation.active {
-  opacity: 1;
-  pointer-events: auto;
-}
 .modal-reservation__confirm {
   display: flex !important;
   flex-direction: column-reverse !important;
@@ -209,10 +213,9 @@ body {
   margin-right: 0 !important;
 }
 .modal-gratitude {
-  display: none;
-}
-.modal-gratitude.active {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 .modal-gratitude__title {
   color: #3B281A;
@@ -275,10 +278,12 @@ body {
   padding: 0 16.5px;
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;
   font-weight: 700;
   color: #FBE7B5;
   font-family: Evolventa, Roboto, serif;
+  font-size: 16px;
+  line-height: 21.28px;
   border: 1px solid #FBE7B5;
 }
 .button:hover, .button.active {
@@ -313,7 +318,7 @@ body {
 }
 .header__item {
   text-transform: uppercase;
-  transition: border-bottom 0.3s ease;
+  transition: border-bottom 0.2s ease;
   border-bottom: rgba(251, 231, 181, 0) 1px solid;
 }
 .header__item:hover, .header__item.active {
@@ -536,6 +541,9 @@ body {
   gap: 30px;
   grid-template-columns: repeat(4, 1fr);
 }
+.menu-preview__button {
+  color: #FBE7B5;
+}
 .menu-preview__button:hover, .menu-preview__button.active {
   background-color: #FBE7B5;
   color: #3B281A;
@@ -555,7 +563,7 @@ body {
   z-index: 2;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 .menu-preview_item:hover {
   background-color: rgba(0, 0, 0, 0.1);
@@ -587,7 +595,7 @@ body {
   font-size: 16px;
   font-weight: 700;
   line-height: 21.28px;
-  transition: border-bottom 0.3s ease;
+  transition: border-bottom 0.2s ease;
   border-bottom: rgba(0, 0, 0, 0) 1px solid;
 }
 
@@ -653,8 +661,7 @@ body {
   position: relative;
   display: grid;
   width: 570px;
-  height: 480px;
-  grid-template: "name    name    name   " auto "phone   phone   phone  " auto "date    time    guests " auto "wishes  wishes  wishes " auto "wishes  wishes  wishes " auto "wishes  wishes  wishes " auto "confirm confirm confirm " auto/1fr 1fr 1fr;
+  grid-template: "name    name    name    " auto "phone   phone   phone   " auto "date    time    guests  " auto "wishes  wishes  wishes  " auto "wishes  wishes  wishes  " auto "wishes  wishes  wishes  " auto "confirm confirm confirm " auto/1fr 1fr 1fr;
   grid-column-gap: 30px;
   grid-row-gap: 15px;
   color: #3B281A;
@@ -724,13 +731,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 15px;
 }
 .reservation-form__button {
   width: 220px;
   color: #FBE7B5;
   border: 1px solid #3B281A;
   background-color: #3B281A;
+  text-align: center;
+  font-family: Evolventa, Roboto, serif;
 }
 .reservation-form__button:hover, .reservation-form__button.active {
   background-color: #FBE7B5;
@@ -774,7 +782,7 @@ body {
   border: 1px #3B281A solid;
   background: rgba(59, 40, 26, 0);
   background-image: none;
-  transition: background 0.3s ease, background-image 0.3s ease;
+  transition: background 0.2s ease, background-image 0.2s ease;
   padding: 1px;
 }
 .reservation-form-consent__checkbox {
@@ -851,7 +859,7 @@ body {
   border-bottom: 1px #FBE7B5 solid;
 }
 .footer-contacts1__item-text {
-  color: #FBE7B5 !important;
+  color: #FBE7B5;
   font-family: Evolventa, Roboto, serif;
   font-size: 22px;
   font-weight: 700;
@@ -898,7 +906,7 @@ body {
   width: fit-content;
   white-space: nowrap;
   border-bottom: rgba(251, 231, 181, 0) 1px solid;
-  transition: border-bottom 0.3s ease;
+  transition: border-bottom 0.2s ease;
 }
 .footer-contacts2__item:hover, .footer-contacts2__item.active {
   border-bottom: #fbe7b5 1px solid;
@@ -943,7 +951,7 @@ body {
 .catalog-tag {
   color: white;
   position: relative;
-  transition: 0.3s ease color;
+  transition: 0.2s ease color;
   cursor: pointer;
 }
 .catalog-tag:after {
@@ -954,7 +962,7 @@ body {
   top: 100%;
   left: 0;
   background-color: white;
-  transition: 0.3s ease background-color;
+  transition: 0.2s ease background-color;
 }
 .catalog__tags {
   display: flex;

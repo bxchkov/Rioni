@@ -1,63 +1,77 @@
-// Close button modal
-let modal = document.querySelector('.modal');
-let modalReservation = document.querySelector('.modal-reservation');
-let modalGratitude = document.querySelector('.modal-gratitude');
+let modals = document.querySelector('.modals');
+let modal1 = document.querySelector('.modal1');
+let modal2 = document.querySelector('.modal2');
+
+//open toggle1 modal
 document.addEventListener("click", e => {
-    let closeButton = e.target.closest('.modal__close');
-    if (!closeButton)
-        return
-    modalCloseAll();
+
+    if (!e.target.closest('.header__button')) {
+        if (!e.target.closest('.footer-contacts2__button')) {
+            return;
+        }
+    }
+    openModal1();
 })
 
-//modalReservation-modalGratitude
+//modal1 to modal2
 document.addEventListener("click", e => {
-    if (!e.target.closest('.button')){
+    if (!e.target.closest('.modal-reservation__button')) {
         return;
     }
-    let closeButton = e.target.closest('.button');
-    if (closeButton.innerText !== "Забронировать столик")
-        return
-    modalToggleAll();
+    modal1.classList.remove("active");
+    modal2.classList.add("active");
 })
 
-// //modalReservation-modalGratitude
-// document.addEventListener("click", e => {
-//     let closeButton = e.target.closest('.button');
-//     if (closeButton.innerText !== "Забронировать столик")
-//         return
-//     modalToggleAll();
-// })
-
-const modalCloseAll = () => {
-    modalReservation.classList.remove("active");
-    modalGratitude.classList.remove("active");
-    modal.classList.remove("active");
-    bodyToggle();
-}
-
-const modalToggleAll = () => {
-    if (modalReservation.classList.contains("active")
-        && modalReservation.classList.contains("active")){
-        modalReservation.classList.remove("active");
-        modal.classList.remove("active");
-    } else {
-        modalReservation.classList.add("active");
-        modal.classList.add("active");
+//close button modals
+document.addEventListener("click", e => {
+    if (!e.target.closest('.modal__close')){
+        return;
     }
-    bodyToggle();
+    closeModals();
+})
+
+const openModal1 = () => {
+    modals.classList.add("active");
+    modal1.classList.add("active");
+    toggleBody();
 }
 
-//bodyToggle
-const bodyToggle = () => {
+
+//toggle all modals
+const toggleModals = () => {
+    if (modal1.classList.contains("active")
+        && modal1.classList.contains("active")){
+        modal1.classList.remove("active");
+        modals.classList.remove("active");
+    } else {
+        modal1.classList.add("active");
+        modals.classList.add("active");
+    }
+    toggleBody();
+}
+
+//close all modals
+const closeModals = () => {
+    modal1.classList.remove("active");
+    modal2.classList.remove("active");
+    modals.classList.remove("active");
+    toggleBody();
+}
+
+//toggle body scrollbar (overflow)
+const toggleBody = () => {
     let html =  document.querySelector("html");
-    if (modal.classList.contains("active")){
+    if (modals.classList.contains("active")){
        html.classList.add("hidden");
     } else {
         html.classList.remove("hidden");
     }
 }
 
-// self toggle
+
+
+
+//self toggle
 const activeToggle = (obj)=> {
     if (obj.classList.contains("active")) {
         obj.classList.remove("active");
