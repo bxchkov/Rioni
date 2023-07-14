@@ -1133,8 +1133,10 @@ body {
     justify-content: space-between;
     row-gap: 20px;
     margin-bottom: 80px;
-    @media(max-width: 1200px){
-      column-gap: 15px;
+    @media(max-width: 600px){
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
     }
   }
 
@@ -1222,14 +1224,15 @@ body {
     &:hover, &.active {
       font-weight: 700;
     }
-    @media(max-width: 900px){
+
+    @media(max-width: 600px){
       margin-top: 10px;
       font-size: 13px;
       line-height: 17.29px;
-      border: 0px;
-      height: 0px;
-      padding-top: 10px;
-      padding-left: 0px;
+      border: 0;
+      height: 15px;
+      padding: 0;
+      padding-left: 0;
       justify-content: left;
       color: #FFFFFF;
       font-weight: bold;
@@ -1244,7 +1247,19 @@ body {
     .product-card__about{
       left: -328px;
     }
+
+    //@media(max-width: 900px) {
+    //
+    //}
   }
+
+  //@media(max-width: 900px) {
+  //  &:nth-child(4n){
+  //    .product-card__about{
+  //      left: 0;
+  //    }
+  //  }
+  //}
 
   &__about {
     position: absolute;
@@ -1262,6 +1277,15 @@ body {
     pointer-events: none;
     transition: opacity .2s ease;
     z-index: 3;
+
+    @media(max-width: 600px) {
+      position: relative;
+      top: 0;
+      right: 0;
+      height: 0;
+      width: 0;
+      padding: 0;
+    }
   }
 
   &__close-icon {
@@ -1272,6 +1296,9 @@ body {
     height: 24px;
     fill: black;
     z-index: 4;
+    @media(max-width: 600px){
+      visibility: hidden;
+    }
   }
 
   &.active {
@@ -1279,14 +1306,24 @@ body {
       font-weight: 700;
       background-color: #FBE7B5;
       color: #3B281A;
-      @media(max-width: 900px){
+      @media(max-width: 600px){
         background-color: rgba(0,0,0,0);
+        border: 0;
+        color: #FBE7B5;
       }
     }
 
     .product-card__about {
       opacity: 1;
       pointer-events: auto;
+      @media(max-width: 600px){
+        padding-top: 5px;
+        height: auto;
+        width: auto;
+        border: 0;
+        background-color: unset;
+        color: #FFFFFF;
+      }
     }
   }
 }
