@@ -631,8 +631,6 @@ body {
 .reservation {
   position: relative;
   background-color: #EFEFEF;
-  padding-top: 130px;
-  padding-bottom: 235px;
   z-index: 1;
 
   &__inner {
@@ -644,6 +642,8 @@ body {
                   / auto   1fr;
     grid-column-gap: 73px;
     width: 100%;
+    padding-top: 130px;
+    padding-bottom: 235px;
 
     @media (max-width: 1300px) {
       grid-template: "title1" auto
@@ -651,6 +651,10 @@ body {
                      "form  " 1fr
                      "form  " 1fr
                   /   auto
+    }
+
+    @media (max-width: 900px) {
+      border: 0;
     }
   }
 
@@ -667,6 +671,10 @@ body {
     z-index: 2;
     pointer-events: none;
     border-radius: 0 10px 10px 0;
+
+    @media (max-width: 900px) {
+      border: 0;
+    }
 
     &__image {
       height: 643px;
@@ -715,14 +723,16 @@ body {
     position: relative;
     display: grid;
     width: 570px;
-    grid-template: "name    name    name    " auto
-                   "phone   phone   phone   " auto
-                   "date    time    guests  " auto
-                   "wishes  wishes  wishes  " auto
-                   "wishes  wishes  wishes  " auto
-                   "wishes  wishes  wishes  " auto
-                   "confirm confirm confirm " auto
-                  / 1fr     1fr     1fr;
+    //grid-template: "name    name    name    " auto
+    //               "phone   phone   phone   " auto
+    //               "date    time    guests  " auto
+    //               "wishes  wishes  wishes  " auto
+    //               "wishes  wishes  wishes  " auto
+    //               "wishes  wishes  wishes  " auto
+    //               "confirm confirm confirm " auto
+    //              / 1fr     1fr     1fr;
+    grid-template-rows: repeat(3, 50px) 150px auto;
+    grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 30px;
     grid-row-gap: 15px;
     color: #3B281A;
@@ -731,8 +741,7 @@ body {
     font-weight: 400;
     line-height: 18.62px;
 
-    &__name, &__phone, &__date,
-    &__time, &__guests, &__wishes {
+    &__input {
       border: 1px #3B281A solid;
       border-radius: 10px;
       width: 100%;
@@ -745,10 +754,6 @@ body {
       font-weight: 400;
       line-height: 18.62px;
 
-      @media (max-width: 1400px) {
-        height: 40px;
-      }
-
       &::placeholder {
         color: #3B281A;
         font-family: Evolventa, Roboto, serif;
@@ -756,21 +761,17 @@ body {
         font-weight: 400;
         line-height: 18.62px;
       }
+
+      @media (max-width: 1400px) {
+        height: 40px;
+      }
     }
 
     @media (max-width: 1400px) {
       width: 450px;
     }
 
-    &__name {
-      grid-area: name;
-    }
-
-    &__phone {
-      grid-area: phone;
-    }
-
-    &__date, &__time, &__guests {
+    &__list {
       display: flex;
       position: relative;
       cursor: pointer;
@@ -787,27 +788,7 @@ body {
       }
     }
 
-    &__date {
-      grid-area: date;
-    }
-
-    &__time {
-      grid-area: time;
-    }
-
-    &__guests {
-      grid-area: guests;
-    }
-
-    &__wishes {
-      grid-area: wishes;
-      height: 150px;
-      text-align: start;
-      padding: 14px 20px;
-    }
-
     &__confirm {
-      grid-area: confirm;
       display: flex;
       flex-direction: column;
       gap: 15px;
@@ -914,7 +895,7 @@ body {
       width: fit-content;
       user-select: none;
 
-      @media (max-width: 1024px) {
+      @media (max-width: 1400px) {
         display: none;
       }
     }
@@ -923,22 +904,27 @@ body {
 
 
 .footer {
-  padding-top: 100px;
   padding-bottom: 50px;
   background-color: #3B281A;
 
   &-contacts1 {
+    white-space: nowrap;
+    padding-top: 100px;
     display: grid;
     grid-template: "title map " auto
                    "items map " auto
                   / 310px auto;
-    grid-column-gap: 190px;
+    grid-column-gap: max(16.3%, 190px);
     padding-bottom: 100px;
     border-bottom: #FBE7B5 2px solid;
     color: #FBE7B5;
 
     @media (max-width: 1400px) {
-      grid-column-gap: 16%;
+      grid-column-gap: 13%;
+    }
+
+    @media (max-width: 1000px) {
+      grid-column-gap: 10%;
     }
 
     &__title {
@@ -1009,8 +995,12 @@ body {
                      "logo  socials address" auto
                      "text  socials address" auto
                      "text  socials button " auto
-                  /   300px auto    auto;
+                  /   1fr   1fr     1fr;
       grid-column-gap: 46px;
+    }
+
+    @media (max-width: 900px) {
+      grid-column-gap: 30px;
     }
 
     &__logo {
@@ -1020,6 +1010,7 @@ body {
 
     &__text {
       grid-area: text;
+      white-space: nowrap;
       align-self: end;
       text-align: justify;
       font-size: 14px;
@@ -1055,6 +1046,7 @@ body {
 
     &__privacy {
       grid-area: privacy;
+      white-space: nowrap;
       text-align: center;
       font-size: 16px;
       font-weight: 400;
@@ -1063,11 +1055,12 @@ body {
     }
 
     &__socials {
+      grid-area: socials;
       justify-self: center;
       align-self: start;
       display: flex;
       gap: 15px;
-      grid-area: socials;
+      margin-top: 20px;
     }
 
     &__social {
@@ -1083,6 +1076,7 @@ body {
 
     &__address {
       grid-area: address;
+      white-space: nowrap;
       align-self: center;
       text-align: right;
       font-size: 16px;

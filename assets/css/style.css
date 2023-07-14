@@ -150,6 +150,41 @@ body {
   overflow: hidden;
 }
 
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 10px;
+  padding: 0 16.5px;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;
+  font-weight: 700;
+  color: #FBE7B5;
+  font-family: Evolventa, Roboto, serif;
+  font-size: 16px;
+  line-height: 21.28px;
+  border: 1px solid #FBE7B5;
+}
+.button:hover, .button.active {
+  background-color: #FBE7B5;
+  border: 1px #FBE7B5 solid;
+  color: #3B281A;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.close-button {
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  fill: white;
+}
+
 .modal {
   position: absolute;
   flex-direction: column;
@@ -165,19 +200,22 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
-.modal .modal-success {
+.modal-success {
   width: 700px;
   height: 257px;
   padding: 34px 179px;
 }
-.modal__close {
+.modal__close-button {
   position: absolute;
   width: 30px;
   height: 30px;
-  background-color: rgba(0, 0, 0, 0);
-  cursor: pointer;
   right: 15px;
   top: -51.6px;
+}
+@media (max-width: 1400px) {
+  .modal__close-button {
+    top: -40px;
+  }
 }
 .modal-reservation__titles {
   display: flex;
@@ -234,11 +272,11 @@ body {
   font-weight: 400;
   line-height: 18.62px;
 }
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+.modal-gratitude__button {
+  color: #FBE7B5;
+  background-color: #3B281A;
+  width: 205px;
+  align-self: center;
 }
 
 .main-background {
@@ -269,29 +307,6 @@ body {
   background-image: url("/assets/images/menu-main-bg.png");
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  border-radius: 10px;
-  padding: 0 16.5px;
-  background-color: rgba(0, 0, 0, 0);
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;
-  font-weight: 700;
-  color: #FBE7B5;
-  font-family: Evolventa, Roboto, serif;
-  font-size: 16px;
-  line-height: 21.28px;
-  border: 1px solid #FBE7B5;
-}
-.button:hover, .button.active {
-  background-color: #FBE7B5;
-  border: 1px #FBE7B5 solid;
-  color: #3B281A;
-}
-
 .header {
   position: relative;
   display: flex;
@@ -306,6 +321,7 @@ body {
   font-family: "Sofia Sans Extra Condensed", Roboto, serif;
   user-select: none;
   z-index: 10;
+  white-space: nowrap;
 }
 .header__items {
   display: flex;
@@ -331,6 +347,11 @@ body {
   width: 220px;
   background-color: #FBE7B5;
   margin-bottom: 7px;
+}
+@media (max-width: 1000px) {
+  .header__button {
+    display: none;
+  }
 }
 .header__phone {
   font-size: 30px;
@@ -406,6 +427,7 @@ body {
 .banner__image {
   position: absolute;
   z-index: 5;
+  object-fit: cover;
 }
 
 .main {
@@ -422,6 +444,12 @@ body {
   padding-bottom: 207px;
   z-index: 2;
 }
+@media (max-width: 1400px) {
+  .about-us {
+    gap: 30px;
+    justify-content: space-between;
+  }
+}
 .about-us__block1 {
   display: flex;
   flex-direction: column;
@@ -432,6 +460,17 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 18.62px;
+  width: 468px;
+}
+@media (max-width: 1001px) {
+  .about-us__block1 {
+    width: 400px;
+  }
+}
+@media (max-width: 901px) {
+  .about-us__block1 {
+    width: 350px;
+  }
 }
 .about-us__title1 {
   font-family: "Sofia Sans Extra Condensed", Roboto, serif;
@@ -461,15 +500,24 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 18.62px;
+  width: 570px;
+}
+@media (max-width: 1100px) {
+  .about-us__block2 {
+    width: 500px;
+  }
+}
+@media (max-width: 960px) {
+  .about-us__block2 {
+    width: 400px;
+  }
 }
 
 .info1__image {
-  width: 468px;
   border-radius: 10px;
 }
 
 .info2__image {
-  width: 570px;
   border-radius: 10px;
 }
 
@@ -477,8 +525,18 @@ body {
   width: 370px;
   border-radius: 10px;
 }
+@media (max-width: 1001px) {
+  .info3__image {
+    width: 300px;
+  }
+}
 .info3__text {
   width: 370px;
+}
+@media (max-width: 1001px) {
+  .info3__text {
+    width: 300px;
+  }
 }
 
 .menu-preview {
@@ -519,10 +577,30 @@ body {
   left: 15px;
   transform: rotate(-15deg);
 }
+@media (max-width: 1400px) {
+  .menu-preview__title1 {
+    top: -174px;
+  }
+}
+@media (max-width: 1400px) {
+  .menu-preview__title1 {
+    top: -124px;
+  }
+}
 .menu-preview__title2 {
   top: -125px;
   left: 155px;
   transform: rotate(11.454deg);
+}
+@media (max-width: 1400px) {
+  .menu-preview__title2 {
+    top: -65px;
+  }
+}
+@media (max-width: 1001px) {
+  .menu-preview__title2 {
+    top: -65px;
+  }
 }
 .menu-preview__title {
   color: #FBE7B5;
@@ -539,6 +617,11 @@ body {
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1400px) {
+  .menu-preview__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .menu-preview__button {
   color: #FBE7B5;
@@ -601,8 +684,6 @@ body {
 .reservation {
   position: relative;
   background-color: #EFEFEF;
-  padding-top: 130px;
-  padding-bottom: 235px;
   z-index: 1;
 }
 .reservation__inner {
@@ -610,6 +691,18 @@ body {
   grid-template: "title1 title2" auto "form   form  " 1fr "form   form  " 1fr "form   form  " 1fr/auto 1fr;
   grid-column-gap: 73px;
   width: 100%;
+  padding-top: 130px;
+  padding-bottom: 235px;
+}
+@media (max-width: 1300px) {
+  .reservation__inner {
+    grid-template: "title1" auto "title2" auto "form  " 1fr "form  " 1fr/auto;
+  }
+}
+@media (max-width: 900px) {
+  .reservation__inner {
+    border: 0;
+  }
 }
 .reservation-frame {
   position: absolute;
@@ -625,6 +718,11 @@ body {
   pointer-events: none;
   border-radius: 0 10px 10px 0;
 }
+@media (max-width: 900px) {
+  .reservation-frame {
+    border: 0;
+  }
+}
 .reservation-frame__image {
   height: 643px;
   position: absolute;
@@ -632,6 +730,16 @@ body {
   right: -302px;
   border-radius: 10px;
   z-index: 2;
+}
+@media (max-width: 1400px) {
+  .reservation-frame__image {
+    height: 553px;
+  }
+}
+@media (max-width: 900px) {
+  .reservation-frame__image {
+    display: none;
+  }
 }
 .reservation__title1 {
   grid-area: title1;
@@ -660,7 +768,8 @@ body {
   position: relative;
   display: grid;
   width: 570px;
-  grid-template: "name    name    name    " auto "phone   phone   phone   " auto "date    time    guests  " auto "wishes  wishes  wishes  " auto "wishes  wishes  wishes  " auto "wishes  wishes  wishes  " auto "confirm confirm confirm " auto/1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 50px) 150px auto;
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 15px;
   color: #3B281A;
@@ -669,7 +778,7 @@ body {
   font-weight: 400;
   line-height: 18.62px;
 }
-.reservation-form__name, .reservation-form__phone, .reservation-form__date, .reservation-form__time, .reservation-form__guests, .reservation-form__wishes {
+.reservation-form__input {
   border: 1px #3B281A solid;
   border-radius: 10px;
   width: 100%;
@@ -682,26 +791,30 @@ body {
   font-weight: 400;
   line-height: 18.62px;
 }
-.reservation-form__name::placeholder, .reservation-form__phone::placeholder, .reservation-form__date::placeholder, .reservation-form__time::placeholder, .reservation-form__guests::placeholder, .reservation-form__wishes::placeholder {
+.reservation-form__input::placeholder {
   color: #3B281A;
   font-family: Evolventa, Roboto, serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 18.62px;
 }
-.reservation-form__name {
-  grid-area: name;
+@media (max-width: 1400px) {
+  .reservation-form__input {
+    height: 40px;
+  }
 }
-.reservation-form__phone {
-  grid-area: phone;
+@media (max-width: 1400px) {
+  .reservation-form {
+    width: 450px;
+  }
 }
-.reservation-form__date, .reservation-form__time, .reservation-form__guests {
+.reservation-form__list {
   display: flex;
   position: relative;
   cursor: pointer;
   align-items: center;
 }
-.reservation-form__date::after, .reservation-form__time::after, .reservation-form__guests::after {
+.reservation-form__list::after {
   position: absolute;
   content: "";
   width: 20px;
@@ -710,23 +823,7 @@ body {
   top: calc(50% - 5px);
   right: 20px;
 }
-.reservation-form__date {
-  grid-area: date;
-}
-.reservation-form__time {
-  grid-area: time;
-}
-.reservation-form__guests {
-  grid-area: guests;
-}
-.reservation-form__wishes {
-  grid-area: wishes;
-  height: 150px;
-  text-align: start;
-  padding: 14px 20px;
-}
 .reservation-form__confirm {
-  grid-area: confirm;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -741,7 +838,7 @@ body {
 }
 .reservation-form__button:hover, .reservation-form__button.active {
   background-color: #FBE7B5;
-  border: 1px solid #3B281A;
+  border: 1px solid #FBE7B5;
   color: #3B281A;
 }
 .reservation-form-consent {
@@ -800,6 +897,11 @@ body {
   line-height: 18.62px;
   margin-right: 165px;
 }
+@media (max-width: 1420px) {
+  .reservation-form-consent__text {
+    margin-right: 0;
+  }
+}
 .reservation-form__title3 {
   position: absolute;
   bottom: 5px;
@@ -814,19 +916,35 @@ body {
   width: fit-content;
   user-select: none;
 }
+@media (max-width: 1400px) {
+  .reservation-form__title3 {
+    display: none;
+  }
+}
 
 .footer {
-  padding-top: 100px;
   padding-bottom: 50px;
   background-color: #3B281A;
 }
 .footer-contacts1 {
+  white-space: nowrap;
+  padding-top: 100px;
   display: grid;
   grid-template: "title map " auto "items map " auto/310px auto;
-  grid-column-gap: 190px;
+  grid-column-gap: max(16.3%, 190px);
   padding-bottom: 100px;
   border-bottom: #FBE7B5 2px solid;
   color: #FBE7B5;
+}
+@media (max-width: 1400px) {
+  .footer-contacts1 {
+    grid-column-gap: 13%;
+  }
+}
+@media (max-width: 1000px) {
+  .footer-contacts1 {
+    grid-column-gap: 10%;
+  }
 }
 .footer-contacts1__title {
   grid-area: title;
@@ -879,17 +997,29 @@ body {
   padding-top: 50px;
   font-family: Evolventa, Roboto, serif;
 }
+@media (max-width: 1250px) {
+  .footer-contacts2 {
+    grid-template: "logo  privacy phone  " auto "logo  socials address" auto "text  socials address" auto "text  socials button " auto/1fr 1fr 1fr;
+    grid-column-gap: 46px;
+  }
+}
+@media (max-width: 900px) {
+  .footer-contacts2 {
+    grid-column-gap: 30px;
+  }
+}
 .footer-contacts2__logo {
   grid-area: logo;
+  margin-bottom: 30px;
 }
 .footer-contacts2__text {
   grid-area: text;
+  white-space: nowrap;
   align-self: end;
   text-align: justify;
   font-size: 14px;
   font-weight: 400;
   line-height: 19px;
-  margin-bottom: 15px;
 }
 .footer-contacts2__items {
   grid-area: items;
@@ -900,6 +1030,11 @@ body {
   font-weight: 400;
   line-height: 21.28px;
   text-align: left;
+}
+@media (max-width: 1250px) {
+  .footer-contacts2__items {
+    display: none;
+  }
 }
 .footer-contacts2__item {
   width: fit-content;
@@ -912,6 +1047,7 @@ body {
 }
 .footer-contacts2__privacy {
   grid-area: privacy;
+  white-space: nowrap;
   text-align: center;
   font-size: 16px;
   font-weight: 400;
@@ -919,11 +1055,12 @@ body {
   text-decoration-line: underline;
 }
 .footer-contacts2__socials {
+  grid-area: socials;
   justify-self: center;
   align-self: start;
   display: flex;
   gap: 15px;
-  grid-area: socials;
+  margin-top: 20px;
 }
 .footer-contacts2__phone {
   grid-area: phone;
@@ -934,6 +1071,7 @@ body {
 }
 .footer-contacts2__address {
   grid-area: address;
+  white-space: nowrap;
   align-self: center;
   text-align: right;
   font-size: 16px;
@@ -942,23 +1080,32 @@ body {
 }
 .footer-contacts2__button {
   grid-area: button;
+  width: 220px;
+  justify-self: end;
 }
 
 .catalog {
+  display: flex;
+  flex-direction: column;
   padding-top: 20px;
+  font-family: Evolventa, Roboto, serif;
+  padding-bottom: 100px;
 }
 .catalog-tag {
   color: white;
   position: relative;
   transition: 0.2s ease color;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.28px;
 }
 .catalog-tag:after {
   content: "";
   position: absolute;
   width: 100%;
   height: 1px;
-  top: 100%;
+  top: 90%;
   left: 0;
   background-color: white;
   transition: 0.2s ease background-color;
@@ -967,6 +1114,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   column-gap: 45px;
+  justify-content: space-between;
   row-gap: 20px;
   margin-bottom: 80px;
 }
@@ -977,9 +1125,15 @@ body {
   justify-content: center;
   column-gap: 30px;
   row-gap: 40px;
+  margin-bottom: 50px;
+}
+.catalog__button {
+  width: 264px;
+  align-self: center;
 }
 
 .product-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 270px;
@@ -994,7 +1148,7 @@ body {
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  margin-bottom: 7px;
+  margin-bottom: 9px;
 }
 .product-card__name:after {
   content: "";
@@ -1004,14 +1158,62 @@ body {
   left: 0;
   width: 100%;
   height: 1px;
-  background: #fff;
+  background: white;
 }
 .product-card__info {
   margin-bottom: 5px;
   font-size: 14px;
+  color: white;
+  font-weight: 400;
+  line-height: 18.62px;
 }
 .product-card__more {
   margin-top: 40px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.28px;
+}
+.product-card__more:hover, .product-card__more.active {
+  font-weight: 700;
+}
+.product-card:nth-child(4n) .product-card__about {
+  left: -328px;
+}
+.product-card__about {
+  position: absolute;
+  width: 467px;
+  padding: 25px;
+  top: -45px;
+  right: -328px;
+  color: #3B281A;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+  border-radius: 15px;
+  background-color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+}
+.product-card__close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 27px;
+  height: 24px;
+  fill: black;
+  z-index: 4;
+}
+.product-card.active .product-card__more {
+  font-weight: 700;
+  background-color: #FBE7B5;
+  color: #3B281A;
+}
+.product-card.active .product-card__about {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /*# sourceMappingURL=style.css.map */
