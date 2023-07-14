@@ -24,23 +24,23 @@
                 для уточнения деталей
             </span>
         </div>
-        <div class="reservation-form modal-reservation__form">
-            <input class="reservation-form__name"
+        <div class="reservation-form modal-reservation__form" style="--cols: 3;">
+            <input class="reservation-form__input" style="--col: 3"
                    placeholder="Ваше имя"
                    type="text">
-            <input class="reservation-form__phone"
+            <input class="reservation-form__input" style="--col: 3"
                    placeholder="Номер телефона"
                    type="text">
-            <div class="reservation-form__date">
+            <div class="reservation-form__input reservation-form__list" style="--col: 1">
                 Дата
             </div>
-            <div class="reservation-form__time">
+            <div class="reservation-form__input reservation-form__list" style="--col: 1">
                 Время
             </div>
-            <div class="reservation-form__guests">
+            <div class="reservation-form__input reservation-form__list" style="--col: 1">
                 Гости
             </div>
-            <textarea class="reservation-form__wishes" placeholder="Пожелания" type="text"></textarea>
+            <textarea class="reservation-form__input" placeholder="Пожелания" type="text" style="text-align: start; padding: 14px 20px; --col: 3"></textarea>
 
             <div class="reservation-form__confirm modal-reservation__confirm">
                 <button class="button reservation-form__button modal-reservation__button">
@@ -235,8 +235,8 @@
                       fill="#FBE7B5"/>
             </svg>
             <div class="footer-contacts2__text">
-                - это уникальное место в Дербенте!
-                Ресторан, приходя в который, вы будто
+                - это уникальное место в Дербенте!<br>
+                Ресторан, приходя в который, вы будто<br>
                 погружаетесь в восточную сказку.
             </div>
             <div class="footer-contacts2__items">

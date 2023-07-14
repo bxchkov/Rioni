@@ -692,7 +692,7 @@ body {
   grid-column-gap: 73px;
   width: 100%;
   padding-top: 130px;
-  padding-bottom: 235px;
+  padding-bottom: 234px;
 }
 @media (max-width: 1300px) {
   .reservation__inner {
@@ -714,8 +714,6 @@ body {
   border-top: 2px #3B281A solid;
   border-right: 2px #3B281A solid;
   border-bottom: 2px #3B281A solid;
-  z-index: 2;
-  pointer-events: none;
   border-radius: 0 10px 10px 0;
 }
 @media (max-width: 900px) {
@@ -769,7 +767,7 @@ body {
   display: grid;
   width: 570px;
   grid-template-rows: repeat(3, 50px) 150px auto;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(var(--cols), 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 15px;
   color: #3B281A;
@@ -779,10 +777,11 @@ body {
   line-height: 18.62px;
 }
 .reservation-form__input {
+  grid-column: span var(--col);
   border: 1px #3B281A solid;
   border-radius: 10px;
   width: 100%;
-  height: 50px;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0);
   padding: 0 20px;
   color: #3B281A;
@@ -825,8 +824,10 @@ body {
 }
 .reservation-form__confirm {
   display: flex;
+  grid-column: span 3;
   flex-direction: column;
   gap: 15px;
+  margin-top: 15px;
 }
 .reservation-form__button {
   width: 220px;
@@ -991,7 +992,7 @@ body {
 }
 .footer-contacts2 {
   display: grid;
-  grid-template: "logo  items privacy phone  " auto "logo  items socials address" auto "text  items socials address" auto "text  items socials button " auto/300px auto auto auto;
+  grid-template: "logo  items privacy phone  " auto "logo  items socials address" auto "text  items socials address" auto "text  items socials button " auto/auto auto auto auto;
   grid-column-gap: 106px;
   color: #FBE7B5;
   padding-top: 50px;
@@ -1020,6 +1021,7 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 19px;
+  width: 300px;
 }
 .footer-contacts2__items {
   grid-area: items;
