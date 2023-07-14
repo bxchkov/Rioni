@@ -11,11 +11,10 @@
 <body>
 
 <div class="modals">
-    <div class="modal1">
-        <button class="modal__close">
-            <img src="assets/icons/close.svg"
-                 alt="">
-        </button>
+    <div class="modal modal-reservation">
+        <img class="close-button modal__close-button"
+             src="assets/icons/closeWhite.svg"
+             alt="">
         <div class="modal-reservation__titles">
             <div class="modal-reservation__title1">
                 Забронируйте стол
@@ -25,7 +24,7 @@
                 для уточнения деталей
             </span>
         </div>
-        <div class="reservation-form">
+        <div class="reservation-form modal-reservation__form">
             <input class="reservation-form__name"
                    placeholder="Ваше имя"
                    type="text">
@@ -60,12 +59,10 @@
             </div>
         </div>
     </div>
-
-    <div class="modal2">
-        <button class="modal__close">
-            <img src="assets/icons/close.svg"
-                 alt="">
-        </button>
+    <div class="modal modal-success">
+        <img class="close-button modal__close-button"
+             src="assets/icons/closeWhite.svg"
+             alt="">
         <div class="modal-gratitude">
             <div class="modal-gratitude__title">
                 Благодарим вас!
@@ -74,9 +71,10 @@
                 Ваша заявка принята, наш менеджер свяжется
                 с вами для уточнения деталей
             </div>
-            <button class="button modal-gratitude__button button-to-main">
+            <a class="button modal-gratitude__button button-to-main"
+               href="index.html">
                 На главную
-            </button>
+            </a>
         </div>
     </div>
 </div>
