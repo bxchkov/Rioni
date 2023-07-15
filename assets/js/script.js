@@ -152,4 +152,14 @@ const checkboxToggle = (checkbox) => {
     }
 }
 
+// header menu
+
+document.addEventListener("click", e=> {
+    if (!e.target.closest(".header-menu__button")){
+        return
+    }
+    let menuButton = e.target.closest(".header-menu");
+    menuButton.classList.toggle("active");
+})
+
 

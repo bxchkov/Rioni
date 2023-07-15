@@ -24,7 +24,7 @@
                 для уточнения деталей
             </span>
         </div>
-        <div class="reservation-form modal-reservation__form grid" style="--cols:3">
+        <div class="reservation-form modal-reservation__form grid" style="--cols:3;--m-cols:2;">
             <input class="reservation-form__input"
                    placeholder="Ваше имя"
                    type="text"
@@ -33,9 +33,10 @@
                    placeholder="Номер телефона"
                    type="text"
                    style="--col:3">
-            <input type="date" class="reservation-form__input reservation-form-list" style="--col: 1; cursor: auto">
-            <div class="reservation-form__input reservation-form-list list" style="--col: 1">
-                <div class="list__title reservation-form-list__title">Время</div>
+            <input type="date" class="reservation-form__input reservation-form-list"
+                   style="--col: 1; --m-col:1; cursor: auto">
+            <div class="reservation-form__input reservation-form-list list" style="--col: 1;--m-col:1;">
+            <div class="list__title reservation-form-list__title">Время</div>
                 <div class="list__items reservation-form-list__items">
                     <div class="list__item reservation-form-list__item">10:00</div>
                     <div class="list__item reservation-form-list__item">11:00</div>
@@ -64,9 +65,9 @@
                     <div class="list__item reservation-form-list__item">6</div>
                 </div>
             </div>
-            <textarea class="reservation-form__input reservation-form__textarea" placeholder="Пожелания" type="text"
-                      style="text-align: start; padding: 14px 20px; --col: 3"></textarea>
-
+            <textarea class="reservation-form__input"
+                      placeholder="Пожелания" type="text"
+                      style="text-align: start; padding: 14px 20px; height: 150px;"></textarea>
             <div class="reservation-form__confirm modal-reservation__confirm" style="--col:3">
                 <button class="button reservation-form__button modal-reservation__button">
                     Забронировать столик
@@ -158,9 +159,46 @@
         <div class="header__work-time">
             с 10:00 - 00:00
         </div>
-        <img class="header__menu"
-             src="assets/icons/menu.svg"
-             alt="">
+        <div class="header-menu">
+            <div class="header-menu__button">
+                <img class="header-menu__button-burger"
+                     src="assets/icons/menu.svg"
+                     alt="">
+                <img class="header-menu__button-close"
+                     src="assets/icons/closeBezh.svg"
+                     alt="">
+            </div>
+            <div class="header-menu__inner">
+                <div class="header-menu__items">
+                    <a class="header-menu__item"
+                       href="menu.html">
+                        Меню
+                    </a>
+                    <a class="header-menu__item"
+                       href="menu.html">
+                        Меню ПП
+                    </a>
+                    <a class="header-menu__item"
+                       href="contacts.html">
+                        Контакты
+                    </a>
+                </div>
+                <div class="header-menu__socials">
+                    <a href="" class="header-menu__social">
+                        <img src="assets/icons/instaBezh.svg"
+                             alt="">
+                    </a>
+                    <a href="" class="header-menu__social">
+                        <img src="assets/icons/whatsBezh.svg"
+                             alt="">
+                    </a>
+                    <a href="" class="header-menu__social">
+                        <img src="assets/icons/facebookBezh.svg"
+                             alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
     <div class="banner container">
         <div class="banner__inner">
@@ -178,7 +216,7 @@
         </div>
         <img class="banner__image"
              src="assets/images/xinkali_mask.png"
-             style="width: 700px; height: 866px; right: 15px; bottom: -103px;"
+             style="max-height: 866px; right: 15px; bottom: -103px;"
              alt="">
     </div>
 </div>
@@ -355,8 +393,10 @@
                 <input class="reservation-form__input"
                        placeholder="Номер телефона"
                        type="text">
-                <input type="date" class="reservation-form__input reservation-form-list" style="--col: 1; --m-col:1; cursor: auto">
+                <input type="date" class="reservation-form__input reservation-form-list"
+                       style="--col: 1; --m-col:1; cursor: auto">
                 <div class="reservation-form__input reservation-form-list list" style="--col: 1;--m-col:1;">
+                    <!--todo-->
                     <input type="hidden" class="list__input" value="">
                     <div class="list__title reservation-form-list__title">Время</div>
                     <div class="list__items reservation-form-list__items">
@@ -377,6 +417,7 @@
                     </div>
                 </div>
                 <div class="reservation-form__input reservation-form-list list" style="--col: 1">
+                    <!--todo-->
                     <input type="hidden" class="list__input" value="">
                     <div class="list__title reservation-form-list__title">Гости</div>
                     <div class="list__items reservation-form-list__items">
@@ -388,8 +429,9 @@
                         <div class="list__item reservation-form-list__item">6</div>
                     </div>
                 </div>
-                <textarea class="reservation-form__input" placeholder="Пожелания" type="text"
-                          style="text-align: start; padding: 14px 20px;"></textarea>
+                <textarea class="reservation-form__input"
+                          placeholder="Пожелания" type="text"
+                          style="text-align: start; padding: 14px 20px; height: 150px;"></textarea>
                 <div class="reservation-form__confirm">
                     <button class="button reservation-form__button">
                         Забронировать столик
