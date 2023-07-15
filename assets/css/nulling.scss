@@ -54,6 +54,10 @@ input::-ms-clear {
   display: none;
 }
 
+input[type="date"]{
+  text-transform: uppercase;
+}
+
 button {
   cursor: pointer;
 }

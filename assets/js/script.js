@@ -60,7 +60,7 @@ const toggleBody = () => {
     }
 }
 
-// products about//
+// products about //
 
 let products = document.querySelectorAll(".product-card");
 
@@ -84,8 +84,10 @@ document.addEventListener("click", e=>{
 
 let prevProduct;
 const productToggle = (product) => {
-    if (prevProduct) {
-        prevProduct.classList.remove("active");
+    if (prevProduct){
+        if (prevProduct !== product) {
+            prevProduct.classList.remove("active");
+        }
     }
     if (!product.classList.contains("active")) {
         product.classList.add("active");
@@ -94,3 +96,56 @@ const productToggle = (product) => {
         product.classList.remove("active");
     }
 }
+
+// input-list //
+
+document.addEventListener("click", e=> {
+    if (!e.target.closest(".list")){
+        return;
+    }
+    let list = e.target.closest(".list");
+    listToggle(list);
+})
+
+document.addEventListener("click", e=> {
+    if (!e.target.closest(".list__item")){
+        return;
+    }
+    let listItem = e.target.closest(".list__item");
+    let listTitle = listItem.closest(".list").querySelector(".list__title");
+    listChooseItem(listTitle, listItem);
+})
+
+const listToggle = (list) => {
+    if (!list.classList.contains("active")) {
+        list.classList.add("active");
+    } else {
+        list.classList.remove("active");
+    }
+}
+
+const listChooseItem = (listTitle, listItem) => {
+    listTitle.innerHTML = listItem.innerHTML;
+}
+
+// reservation form checkbox //
+
+document.addEventListener("click", e=>{
+    console.log(e.target);
+    if (!e.target.closest(".reservation-form-consent__checkbox")){
+        return
+    }
+    let checkbox = e.target.closest(".reservation-form-consent");
+    checkboxToggle(checkbox);
+})
+
+const checkboxToggle = (checkbox) => {
+    // console.log(checkbox);
+    if (!checkbox.classList.contains("active")){
+        checkbox.classList.add("active");
+    } else {
+        checkbox.classList.remove("active");
+    }
+}
+
+
