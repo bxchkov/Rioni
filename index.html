@@ -24,13 +24,15 @@
                 для уточнения деталей
             </span>
         </div>
-        <div class="reservation-form modal-reservation__form" style="">
+        <div class="reservation-form modal-reservation__form grid" style="--cols:3">
             <input class="reservation-form__input"
                    placeholder="Ваше имя"
-                   type="text">
+                   type="text"
+                   style="--col:3">
             <input class="reservation-form__input"
                    placeholder="Номер телефона"
-                   type="text">
+                   type="text"
+                   style="--col:3">
             <input type="date" class="reservation-form__input reservation-form-list" style="--col: 1; cursor: auto">
             <div class="reservation-form__input reservation-form-list list" style="--col: 1">
                 <div class="list__title reservation-form-list__title">Время</div>
@@ -49,7 +51,6 @@
                     <div class="list__item reservation-form-list__item">21:00</div>
                     <div class="list__item reservation-form-list__item">22:00</div>
                     <div class="list__item reservation-form-list__item">23:00</div>
-                    <div class="list__item reservation-form-list__item">00:00</div>
                 </div>
             </div>
             <div class="reservation-form__input reservation-form-list list" style="--col: 1">
@@ -63,10 +64,10 @@
                     <div class="list__item reservation-form-list__item">6</div>
                 </div>
             </div>
-            <textarea class="reservation-form__input" placeholder="Пожелания" type="text"
+            <textarea class="reservation-form__input reservation-form__textarea" placeholder="Пожелания" type="text"
                       style="text-align: start; padding: 14px 20px; --col: 3"></textarea>
 
-            <div class="reservation-form__confirm modal-reservation__confirm">
+            <div class="reservation-form__confirm modal-reservation__confirm" style="--col:3">
                 <button class="button reservation-form__button modal-reservation__button">
                     Забронировать столик
                 </button>
@@ -347,15 +348,16 @@
                 Оставьте заявку и наш менеджер свяжется с вами<br>
                 для уточнения деталей
             </div>
-            <div class="reservation-form" style="">
+            <div class="reservation-form grid" style="--cols:3;--m-cols:2;">
                 <input class="reservation-form__input"
                        placeholder="Ваше имя"
                        type="text">
                 <input class="reservation-form__input"
                        placeholder="Номер телефона"
                        type="text">
-                <input type="date" class="reservation-form__input reservation-form-list" style="--col: 1; cursor: auto">
-                <div class="reservation-form__input reservation-form-list list" style="--col: 1">
+                <input type="date" class="reservation-form__input reservation-form-list" style="--col: 1; --m-col:1; cursor: auto">
+                <div class="reservation-form__input reservation-form-list list" style="--col: 1;--m-col:1;">
+                    <input type="hidden" class="list__input" value="">
                     <div class="list__title reservation-form-list__title">Время</div>
                     <div class="list__items reservation-form-list__items">
                         <div class="list__item reservation-form-list__item">10:00</div>
@@ -372,10 +374,10 @@
                         <div class="list__item reservation-form-list__item">21:00</div>
                         <div class="list__item reservation-form-list__item">22:00</div>
                         <div class="list__item reservation-form-list__item">23:00</div>
-                        <div class="list__item reservation-form-list__item">00:00</div>
                     </div>
                 </div>
                 <div class="reservation-form__input reservation-form-list list" style="--col: 1">
+                    <input type="hidden" class="list__input" value="">
                     <div class="list__title reservation-form-list__title">Гости</div>
                     <div class="list__items reservation-form-list__items">
                         <div class="list__item reservation-form-list__item">1</div>
@@ -387,7 +389,7 @@
                     </div>
                 </div>
                 <textarea class="reservation-form__input" placeholder="Пожелания" type="text"
-                          style="text-align: start; padding: 14px 20px; --col: 3"></textarea>
+                          style="text-align: start; padding: 14px 20px;"></textarea>
                 <div class="reservation-form__confirm">
                     <button class="button reservation-form__button">
                         Забронировать столик

@@ -100,38 +100,42 @@ const productToggle = (product) => {
 // input-list //
 
 document.addEventListener("click", e=> {
-    if (!e.target.closest(".list")){
+    if (!e.target.closest(".list") || e.target.closest(".list.active")){
         return;
     }
+    document.querySelectorAll(".list.active").forEach(item=>{
+        item.classList.remove("active");
+    })
     let list = e.target.closest(".list");
-    listToggle(list);
+    list.classList.toggle("active");
 })
 
 document.addEventListener("click", e=> {
-    if (!e.target.closest(".list__item")){
+    const listItem = e.target.closest(".list.active .list__item");
+    if (!listItem){
         return;
     }
-    let listItem = e.target.closest(".list__item");
-    let listTitle = listItem.closest(".list").querySelector(".list__title");
-    listChooseItem(listTitle, listItem);
-})
-
-const listToggle = (list) => {
-    if (!list.classList.contains("active")) {
-        list.classList.add("active");
-    } else {
-        list.classList.remove("active");
+    const list = e.target.closest(".list.active");
+    const input = list.querySelector(".list__input")
+    if(input){
+        input.value = listItem.innerText;
+        input.dispatchEvent(new Event("change",{bubbles:true}));
     }
-}
-
-const listChooseItem = (listTitle, listItem) => {
-    listTitle.innerHTML = listItem.innerHTML;
-}
-
+})
+document.addEventListener("change",e=>{
+    const input = e.target.closest(".list.active .list__input");
+    console.log(input)
+    if(!input){
+        return;
+    }
+    const list = input.closest(".list.active");
+    const title = list.querySelector(".list__title");
+    title.innerText = input.value;
+    list.classList.remove("active");
+})
 // reservation form checkbox //
 
 document.addEventListener("click", e=>{
-    console.log(e.target);
     if (!e.target.closest(".reservation-form-consent__checkbox")){
         return
     }

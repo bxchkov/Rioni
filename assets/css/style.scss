@@ -100,9 +100,11 @@ body {
       pointer-events: auto;
     }
   }
+  &__input{
+    display: none;
+  }
 
   &__title {
-    position: absolute;
     display: flex;
     align-items: center;
     top: 0;
@@ -116,7 +118,7 @@ body {
 
   &__items {
     position: absolute;
-    top: 100%;
+    top: calc(100% - 2px);
     left: 0;
     width: 100%;
     display: flex;
@@ -322,6 +324,7 @@ body {
     text-transform: uppercase;
     transition: border-bottom .2s ease;
     border-bottom: rgba(#FBE7B5, 0) 1px solid;
+    color: #FBE7B5;
 
     &:hover, &.active {
       border-bottom: rgba(#FBE7B5, 1) 1px solid;
@@ -346,6 +349,7 @@ body {
     line-height: 36px;
     font-weight: 400;
     margin-bottom: 7px;
+    color: #FBE7B5;
 
     @media (max-width: 900px) {
       display: none;
@@ -884,8 +888,8 @@ body {
     position: relative;
     display: grid;
     width: 570px;
-    grid-template-rows: repeat(3, 50px) 150px auto;
-    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(var(--cols,8), 1fr);
     grid-column-gap: 30px;
     grid-row-gap: 15px;
     color: #3B281A;
@@ -895,10 +899,9 @@ body {
     line-height: 18.62px;
 
     @media (max-width: 1400px) {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(4, 50px) 100px auto;
       width: 450px;
     }
+
 
     &__input {
       position: relative;
@@ -947,8 +950,7 @@ body {
       &__title {
         border-radius: 10px;
         width: 100%;
-        height: 50px;
-        padding: 0 20px;
+        padding: 14px 20px;
       }
 
       &__items {
@@ -966,7 +968,13 @@ body {
         width: 100%;
         padding: 5px 20px;
       }
-
+      &__textarea{
+        height: 150px;
+        // TODO: вписать медиа
+        @media(max-width: 1400px){
+          height: 100px;
+        }
+      }
       &::-webkit-calendar-picker-indicator {
         cursor: pointer;
         opacity: 0;
@@ -1102,7 +1110,23 @@ body {
     }
   }
 }
-
+.grid{
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(var(--cols,4), 1fr);
+  column-gap: 30px;
+  row-gap: 15px;
+  & > *{
+    grid-column: span var(--col,var(--cols,4));
+  }
+  //TODO:вписать ширину мобилки
+  @media (max-width: 1400px) {
+    grid-template-columns: repeat(var(--m-cols,4), 1fr);
+    & > *{
+      grid-column: span var(--m-col,var(--m-cols,4));
+    }
+  }
+}
 
 .footer {
   padding-bottom: 50px;
