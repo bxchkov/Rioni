@@ -2,7 +2,7 @@
 
 let modals = document.querySelector('.modals');
 let modalReservation = document.querySelector('.modal-reservation');
-let modalSuccess = document.querySelector('.modal-success');
+let modalSuccess = document.querySelector('.modal-gratitude');
 
 //open Modal Reservation
 document.addEventListener("click", e => {
@@ -66,10 +66,11 @@ let products = document.querySelectorAll(".product-card");
 
 //add active class
 document.addEventListener("click", e=>{
-    if (!e.target.closest(".product-card__more")) {
+    if (!e.target.closest(".product-card__button")) {
         return;
     }
     let product = e.target.closest(".product-card");
+    console.log('a');
     productToggle(product);
 })
 
@@ -155,10 +156,12 @@ const checkboxToggle = (checkbox) => {
 // header menu
 
 document.addEventListener("click", e=> {
-    if (!e.target.closest(".header-menu__button")){
+    if (!e.target.closest(".header")){
         return
     }
     let menuButton = e.target.closest(".header-menu");
+    let backgroundMenu = e.target.closest(".header-menu").querySelector(".header-menu__background");
+    backgroundMenu.classList.toggle("active");
     menuButton.classList.toggle("active");
 })
 
