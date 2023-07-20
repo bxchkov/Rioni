@@ -101,9 +101,11 @@ const productToggle = (product) => {
 // input-list //
 
 document.addEventListener("click", e => {
-    if (!e.target.closest(".list")) {
+    console.log(e.target);
+    if (!e.target.closest(".list") || e.target.closest(".list.active")) {
         return;
     }
+    console.log('ebla1');
     let list = e.target.closest(".list");
     list.classList.toggle("active");
     document.querySelectorAll(".list.active").forEach(item => {
@@ -117,6 +119,7 @@ document.addEventListener("click", e => {
     if (!listItem) {
         return;
     }
+    console.log('ebla2');
     const list = e.target.closest(".list.active");
     const input = list.querySelector(".list__input")
     if (input) {
@@ -130,6 +133,7 @@ document.addEventListener("change", e => {
     if (!input) {
         return;
     }
+    console.log('ebla3');
     const list = input.closest(".list.active");
     const title = list.querySelector(".list__title");
     title.innerText = input.value;

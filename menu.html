@@ -28,12 +28,10 @@
         <div class="reservation-form modal-reservation__form grid" style="--cols:3;--m-cols:2;">
             <input class="reservation-form__input"
                    placeholder="Ваше имя"
-                   type="text"
-                   style="--col:3">
+                   type="text">
             <input class="reservation-form__input"
                    placeholder="Номер телефона"
-                   type="text"
-                   style="--col:3">
+                   type="text">
             <input type="date" class="reservation-form__input reservation-form-list"
                    style="--col: 1; --m-col:1;">
             <div class="reservation-form__input reservation-form-list list" style="--col: 1;--m-col:1;">
@@ -68,16 +66,70 @@
             </div>
             <textarea class="reservation-form__input"
                       placeholder="Пожелания"></textarea>
-            <div class="reservation-form__confirm modal-reservation__confirm" style="--col:3">
-                <button class="button reservation-form__button modal-reservation__button">
+            <div class="reservation-form__confirm">
+                <button class="button reservation-form__button">
                     Забронировать столик
                 </button>
-                <label class="reservation-form-consent modal-reservation__consent" for="consent1">
+                <label class="reservation-form-consent" for="consent1">
                     <span class="reservation-form-consent__inner">
                         <input class="reservation-form-consent__checkbox"
                                type="checkbox"
                                id="consent1">
-                        <span class="reservation-form-consent__text modal-reservation__text">
+                        <span class="reservation-form-consent__text">
+                            Даю согласие на обработку персональных данных, а также с условиями бронирования*
+                        </span>
+                    </span>
+                </label>
+            </div><input class="reservation-form__input"
+                         placeholder="Ваше имя"
+                         type="text">
+            <input class="reservation-form__input"
+                   placeholder="Номер телефона"
+                   type="text">
+            <input type="date" class="reservation-form__input reservation-form-list"
+                   style="--col: 1; --m-col:1;">
+            <div class="reservation-form__input reservation-form-list list" style="--col: 1;--m-col:1;">
+                <div class="list__title reservation-form-list__title">Время</div>
+                <div class="list__items reservation-form-list__items">
+                    <div class="list__item reservation-form-list__item">10:00</div>
+                    <div class="list__item reservation-form-list__item">11:00</div>
+                    <div class="list__item reservation-form-list__item">12:00</div>
+                    <div class="list__item reservation-form-list__item">13:00</div>
+                    <div class="list__item reservation-form-list__item">14:00</div>
+                    <div class="list__item reservation-form-list__item">15:00</div>
+                    <div class="list__item reservation-form-list__item">16:00</div>
+                    <div class="list__item reservation-form-list__item">17:00</div>
+                    <div class="list__item reservation-form-list__item">18:00</div>
+                    <div class="list__item reservation-form-list__item">19:00</div>
+                    <div class="list__item reservation-form-list__item">20:00</div>
+                    <div class="list__item reservation-form-list__item">21:00</div>
+                    <div class="list__item reservation-form-list__item">22:00</div>
+                    <div class="list__item reservation-form-list__item">23:00</div>
+                </div>
+            </div>
+            <div class="reservation-form__input reservation-form-list list" style="--col: 1">
+                <div class="list__title reservation-form-list__title">Гости</div>
+                <div class="list__items reservation-form-list__items">
+                    <div class="list__item reservation-form-list__item">1</div>
+                    <div class="list__item reservation-form-list__item">2</div>
+                    <div class="list__item reservation-form-list__item">3</div>
+                    <div class="list__item reservation-form-list__item">4</div>
+                    <div class="list__item reservation-form-list__item">5</div>
+                    <div class="list__item reservation-form-list__item">6</div>
+                </div>
+            </div>
+            <textarea class="reservation-form__input"
+                      placeholder="Пожелания"></textarea>
+            <div class="reservation-form__confirm">
+                <button class="button reservation-form__button">
+                    Забронировать столик
+                </button>
+                <label class="reservation-form-consent" for="consent1">
+                    <span class="reservation-form-consent__inner">
+                        <input class="reservation-form-consent__checkbox"
+                               type="checkbox"
+                               id="consent1">
+                        <span class="reservation-form-consent__text">
                             Даю согласие на обработку персональных данных, а также с условиями бронирования*
                         </span>
                     </span>

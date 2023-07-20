@@ -260,19 +260,8 @@ body {
     font-family: Montserrat, Roboto, serif;
     font-size: 13px;
     line-height: 1.188;
-    margin: 0 -15px;
+    margin: 0 -13px;
   }
-}
-.modal-reservation__confirm {
-  display: flex !important;
-  flex-direction: column-reverse !important;
-  align-items: center;
-}
-.modal-reservation__consent {
-  align-self: stretch;
-}
-.modal-reservation__text {
-  margin-right: 0 !important;
 }
 .modal-gratitude {
   display: flex;
@@ -1562,6 +1551,7 @@ body {
   }
 }
 .reservation-form__input::placeholder {
+  user-select: none;
   color: #3B281A;
   font-family: Evolventa, Roboto, serif;
   font-size: 14px;
@@ -1771,6 +1761,14 @@ body {
     font-size: 13px;
   }
 }
+.reservation-form.modal-reservation__form .reservation-form__confirm {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.reservation-form.modal-reservation__form .reservation-form-consent__text {
+  margin-right: 0;
+}
 
 .grid {
   display: grid;
@@ -1799,7 +1797,7 @@ body {
   padding-top: 100px;
   white-space: nowrap;
   display: grid;
-  grid-template: "title map " 1fr "items map " auto/310px auto;
+  grid-template: "title map " auto "items map " 1fr/310px auto;
   grid-column-gap: max(16.3%, 190px);
   padding-bottom: 100px;
   border-bottom: #FBE7B5 2px solid;
@@ -1832,9 +1830,11 @@ body {
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
+  margin-bottom: 88px;
 }
 @media (max-width: 900px) {
   .footer-contacts1__title {
+    margin-bottom: 0;
     font-size: 35px;
   }
 }
