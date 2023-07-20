@@ -2,7 +2,7 @@
 
 let modals = document.querySelector('.modals');
 let modalReservation = document.querySelector('.modal-reservation');
-let modalSuccess = document.querySelector('.modal-gratitude');
+let modalGratitude = document.querySelector('.modal-gratitude');
 
 //open Modal Reservation
 document.addEventListener("click", e => {
@@ -17,21 +17,19 @@ document.addEventListener("click", e => {
     openModalReservation();
 })
 
-//modalReservation to modalSuccess
+// modal2 - gratitude
 document.addEventListener("click", e => {
-    if (!e.target.closest('.modal-reservation__button')) {
+    if (!e.target.closest('.reservation-form__button')) {
         return;
     }
     modalReservation.classList.remove("active");
-    modalSuccess.classList.add("active");
+    modalGratitude.classList.add("active");
 })
 
-//close/toMain button
+// close/toMain button
 document.addEventListener("click", e => {
-    if (!e.target.closest('.modal__close-button')) {
-        if (!e.target.closest('.modal-gratitude__button')) {
-            return;
-        }
+    if (!e.target.closest('.modal-gratitude__button')) {
+        return;
     }
     closeModals();
 })
@@ -45,7 +43,7 @@ const openModalReservation = () => {
 //close all modals
 const closeModals = () => {
     modalReservation.classList.remove("active");
-    modalSuccess.classList.remove("active");
+    modalGratitude.classList.remove("active");
     modals.classList.remove("active");
     toggleBody();
 }
@@ -101,45 +99,44 @@ const productToggle = (product) => {
 // input-list //
 
 document.addEventListener("click", e => {
-    console.log(e.target);
-    if (!e.target.closest(".list") || e.target.closest(".list.active")) {
+    if (!e.target.closest(".list")) {
         return;
     }
-    console.log('ebla1');
     let list = e.target.closest(".list");
-    list.classList.toggle("active");
+    if (e.target.closest(".list.active")) {
+        selectItem(e.target);
+        list.classList.toggle("active");
+        return;
+    }
     document.querySelectorAll(".list.active").forEach(item => {
         if (item !== list)
-        item.classList.remove("active");
+            item.classList.remove("active");
     })
+    list.classList.toggle("active");
 })
 
-document.addEventListener("click", e => {
-    const listItem = e.target.closest(".list.active .list__item");
+const selectItem = (target) => {
+    const listItem = target.closest(".list__item");
     if (!listItem) {
         return;
     }
-    console.log('ebla2');
-    const list = e.target.closest(".list.active");
+    const list = target.closest(".list.active");
     const input = list.querySelector(".list__input")
     if (input) {
         input.value = listItem.innerText;
         input.dispatchEvent(new Event("change", {bubbles: true}));
     }
-})
+}
 document.addEventListener("change", e => {
     const input = e.target.closest(".list.active .list__input");
     console.log(input)
     if (!input) {
         return;
     }
-    console.log('ebla3');
     const list = input.closest(".list.active");
     const title = list.querySelector(".list__title");
     title.innerText = input.value;
-    list.classList.remove("active");
 })
-
 
 // reservation form checkbox //
 
@@ -163,7 +160,7 @@ const checkboxToggle = (checkbox) => {
 // header menu
 
 document.addEventListener("click", e => {
-    if (!e.target.closest(".header")) {
+    if (!e.target.closest(".header-menu")) {
         return
     }
     let menuButton = e.target.closest(".header-menu");
