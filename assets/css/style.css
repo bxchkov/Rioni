@@ -115,7 +115,7 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 *::-webkit-scrollbar-track {
@@ -125,7 +125,7 @@ body {
 *::-webkit-scrollbar-thumb {
   background-color: #FBE7B5;
   border-radius: 20px;
-  border: 3px solid #463323;
+  border: 2px solid #463323;
 }
 
 .modals {
@@ -593,7 +593,7 @@ body {
   gap: 10px;
   font-family: Evolventa, Roboto, serif;
   transition: right 0.3s ease;
-  z-index: 10;
+  z-index: 25;
 }
 .header-menu__items {
   display: flex;
@@ -1565,11 +1565,10 @@ body {
 }
 .reservation-form__input::-webkit-scrollbar {
   border-radius: 0 10px 10px 0;
-  width: 12px;
 }
 .reservation-form__input::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0);
-  margin: 3px;
+  margin: 10px;
 }
 .reservation-form__input::-webkit-scrollbar-thumb {
   background-color: #b0b0b0;

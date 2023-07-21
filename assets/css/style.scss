@@ -10,7 +10,7 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: 12px; // ширина scrollbar
+  width: 8px; // ширина scrollbar
 }
 
 *::-webkit-scrollbar-track {
@@ -20,7 +20,7 @@ body {
 *::-webkit-scrollbar-thumb {
   background-color: #FBE7B5; // цвет плашки
   border-radius: 20px; // закругления плашки
-  border: 3px solid #463323; // padding вокруг плашки
+  border: 2px solid #463323; // padding вокруг плашки
 }
 
 .modals {
@@ -442,16 +442,13 @@ body {
         opacity: 0;
         pointer-events: none;
       }
-
       .header-menu__button-close {
         opacity: 1;
         pointer-events: auto;
       }
-
       .header-menu__inner {
         right: 0;
       }
-
       .header-menu__background {
         opacity: 1;
         pointer-events: auto;
@@ -1394,12 +1391,11 @@ body {
 
       &::-webkit-scrollbar {
         border-radius: 0 10px 10px 0;
-        width: 12px;
       }
 
       &::-webkit-scrollbar-track {
         background: rgba(0, 0, 0, 0);
-        margin: 3px;
+        margin: 10px;
       }
 
       &::-webkit-scrollbar-thumb {
