@@ -338,12 +338,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 30px;
-}
-@media (max-width: 1000px) {
-  .container {
-    padding: 0 15px;
-  }
+  padding: 0 15px;
 }
 
 .close-button {
@@ -1819,7 +1814,6 @@ body {
 @media (max-width: 900px) {
   .footer-contacts {
     padding-top: 180px;
-    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -2130,6 +2124,7 @@ body {
   }
 }
 .menu__products {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
@@ -2173,6 +2168,10 @@ body {
   display: flex;
   flex-direction: column;
   width: 270px;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #fbe7b5;
+  font-weight: 700;
 }
 @media (max-width: 1200px) {
   .product-card {
