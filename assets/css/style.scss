@@ -293,7 +293,7 @@ body {
 }
 
 .main-background {
-  background: #3B281A url("../../assets/images/background.svg");
+  background: #3B281A url("../../assets/images/main-background.svg");
   position: relative;
   overflow: hidden;
 
@@ -311,18 +311,6 @@ body {
     @media (max-width: 900px) {
       height: 60%;
     }
-  }
-
-  &__menu-bg:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-image: url("assets/images/menu-main-bg.webp");
   }
 }
 
@@ -903,7 +891,7 @@ body {
     top: calc(-450 * (100vw / 1920));
     z-index: 1;
     overflow: hidden;
-    //background: url("../../assets/images/background2.svg") repeat-y;
+    //background: url("../../assets/images/menu-preview-background.svg") repeat-y;
   }
 
   &__inner {
@@ -1641,7 +1629,27 @@ body {
   padding-bottom: 50px;
   background-color: #3B281A;
 
-  &-contacts1 {
+  &.footer_contacts{
+    .footer-contacts {
+      @media (max-width: 900px) {
+        padding-top: 30px;
+      }
+    }
+  }
+
+  &.footer_menu{
+    @media (max-width: 900px) {
+      padding-top: 180px;
+    }
+
+    .footer-info {
+      @media (max-width: 900px) {
+        border-top: #FBE7B5 2px solid;
+      }
+    }
+  }
+
+  &-contacts {
     padding-top: 100px;
     white-space: nowrap;
     display: grid;
@@ -1752,7 +1760,7 @@ body {
     }
   }
 
-  &-contacts2 {
+  &-info {
     display: grid;
     grid-template: "logo  items privacy phone  " auto
                    "logo  items socials address" auto
@@ -1923,14 +1931,33 @@ body {
   }
 }
 
-.catalog {
+.menu {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 20px 0 100px 0;
   font-family: Evolventa, Roboto, serif;
+  z-index: 1;
 
   @media (max-width: 600px) {
     padding: 30px 0;
+  }
+
+  &-background {
+    position: relative;
+    background: #3B281A;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      background-image: url("../../assets/images/menu-background.svg");
+    }
   }
 
   &-tag {
@@ -2203,7 +2230,3 @@ body {
     }
   }
 }
-
-
-
-

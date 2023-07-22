@@ -7,7 +7,7 @@
     //open Modal Reservation
     document.addEventListener("click", e => {
         if (!e.target.closest('.header__button')) {
-            if (!e.target.closest('.footer-contacts2__button')) {
+            if (!e.target.closest('.footer-info__button')) {
                 if (!e.target.closest('.banner__button')) {
                     return;
                 }
@@ -21,7 +21,10 @@
         if (!e.target.closest('.reservation-form__button')) {
             return;
         }
-        openModalGratitude();
+        let formButton = e.target.closest('.reservation-form__button');
+        let form = formButton.closest('.reservation-form');
+        console.log(form);
+        inputsValidation(form);
     })
 
     //close modals / toMain button
@@ -39,8 +42,24 @@
         modalReservation.classList.add("active");
         html.classList.toggle("hidden");
     }
-    const openModalGratitude = () => {
 
+    const inputsValidation = (form) => {
+        let formName = form.querySelector('.form-name');
+        let formPhone = form.querySelector('.form-phone');
+        let formDate = form.querySelector('.form-date');
+        let formTime = form.querySelector('.form-time');
+        let formGuests = form.querySelector('.form-guests');
+        let formWishes = form.querySelector('.form-wishes');
+        console.log(formName.value);
+        console.log(formPhone.value);
+        console.log(formDate.value);
+        console.log(formTime.value);
+        console.log(formGuests.value);
+        console.log(formWishes.value);
+        openModalGratitude();
+    }
+
+    const openModalGratitude = () => {
         if (!background.classList.contains("active")){
             background.classList.add("active");
         }
@@ -67,7 +86,7 @@
         menuButton.classList.toggle("active");
     })
 
-// input-list //
+// FORM input-list //
     document.addEventListener("click", e => {
         if (!e.target.closest(".list")) {
             return;
@@ -108,7 +127,8 @@
         title.innerText = input.value;
     })
 
-// reservation form checkbox //
+
+// FORM reservation checkbox //
     document.addEventListener("click", e => {
         if (!e.target.closest(".reservation-form-consent__checkbox")) {
             return
@@ -162,5 +182,3 @@
             product.classList.remove("active");
         }
     }
-
-
